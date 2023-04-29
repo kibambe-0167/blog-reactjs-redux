@@ -9,7 +9,7 @@ const taskSlice = createSlice({
   initialState,
   reducers: {
     addTask: (state, action) => {
-      // add new task to array.
+      // add new task to array. let prevent to add task with same name.
       state.tasks.push(action.payload);
     },
     deleteTask: (state, action) => {

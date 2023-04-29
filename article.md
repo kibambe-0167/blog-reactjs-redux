@@ -18,7 +18,6 @@ I usually delete the entire codes in file of src/App.js
 ### (optional) mostly use tailwind for css. more aboue it here. https://tailwindcss.com/docs/guides/create-react-app
 - yarn add tailwindcss
 - npx tailwindcss init
-- 
 
 
 # there is redux and reactjs

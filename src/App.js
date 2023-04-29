@@ -1,9 +1,29 @@
+import { useState } from "react";
 import "./App.css";
+import { useDispatch, useSelector } from "react-redux/";
+import { addTask, selectTasks } from "./redux_/slices/tasks";
 
 function App() {
+  const [formData, setFormData] = useState({});
+  // redux
+  const dispatch = useDispatch();
+  const selectTask = useSelector(selectTasks);
+
   function handleSubmit(event) {
     event.preventDefault();
-    console.log("gvjhbjnkml,");
+    if (formData && formData.name && formData.name.length > 0) {
+      // add task to redux slice.
+      // prevent adding task with same name.
+      if (
+        selectTask.filter((task) => task?.name === formData?.name).length > 0
+      ) {
+        dispatch(
+          addTask({
+            name: formData?.name,
+          })
+        );
+      }
+    }
   }
 
   return (
@@ -19,6 +39,9 @@ function App() {
         >
           <div className=" my-3 w-full ">
             <input
+              onChange={(event) =>
+                setFormData({ ...formData, name: event.target.value })
+              }
               className=" w-full rounded-sm px-2 py-2 color text-lg "
               placeholder="Tasks name"
             />
@@ -30,7 +53,16 @@ function App() {
             </button>
           </div>
         </form>
-        <div className=" bg-green-700 w-4/12 mx-3 ">all</div>
+
+        {/*  */}
+        <div className=" bg-green-700 w-4/12 mx-3 ">
+          {selectTask &&
+            selectTask.length > 0 &&
+            selectTask.map((task, index) => (
+              <div key={index}>{task?.name}</div>
+            ))}
+        </div>
+        {/*  */}
         <div className=" bg-blue-700 w-4/12 ">edit</div>
       </div>
     </div>

@@ -1,7 +1,12 @@
 import { useState } from "react";
 import "./App.css";
 import { useDispatch, useSelector } from "react-redux/";
-import { addTask, editTaskName, selectTasks } from "./redux_/slices/tasks";
+import {
+  addTask,
+  deleteTask,
+  editTaskName,
+  selectTasks,
+} from "./redux_/slices/tasks";
 
 function App() {
   const [formData, setFormData] = useState({});
@@ -19,8 +24,19 @@ function App() {
     // update task name in redux
     event.preventDefault();
     if (toEdit && toEdit.index >= 0 && toEdit.name) {
-      dispatch(editTaskName(toEdit));
+      // make sure, task edit name is not duplicate.
+      if (
+        selectTask.filter((task) => task?.name === toEdit?.name).length === 0
+      ) {
+        dispatch(editTaskName(toEdit));
+      } else {
+        alert("Task with same name already exists.");
+      }
     }
+  }
+
+  function removeTask(index) {
+    dispatch(deleteTask(index));
   }
 
   function handleSubmit(event) {
@@ -75,8 +91,17 @@ function App() {
           {selectTask &&
             selectTask.length > 0 &&
             selectTask.map((task, index) => (
-              <div onClick={() => edit(task, index)} key={index}>
-                {task?.name}
+              <div
+                className="flex justify-between px-2 py-2 text-center "
+                key={index}
+              >
+                <div onClick={() => edit(task, index)}>{task?.name}</div>
+                <button
+                  className=" bg-red-800 px-2 py-1 rounded-md "
+                  onClick={() => removeTask()}
+                >
+                  delete task
+                </button>
               </div>
             ))}
         </div>

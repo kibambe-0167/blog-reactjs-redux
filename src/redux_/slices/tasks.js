@@ -13,7 +13,7 @@ const taskSlice = createSlice({
       state.tasks.push(action.payload);
     },
     deleteTask: (state, action) => {
-      // return all tasks objects in array, except the ones without the same index as the provided index.
+      // return all tasks objects in array, except the ones with the same index as the provided index.
       state.tasks = state.tasks.filter(
         (task, index) => index !== action.payload
       );

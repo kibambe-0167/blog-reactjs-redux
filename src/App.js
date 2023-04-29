@@ -30,7 +30,7 @@ function App() {
       ) {
         dispatch(editTaskName(toEdit));
       } else {
-        alert("Task with same name already exists.");
+        alert("No Changes made");
       }
     }
   }
@@ -98,7 +98,7 @@ function App() {
                 <div onClick={() => edit(task, index)}>{task?.name}</div>
                 <button
                   className=" bg-red-800 px-2 py-1 rounded-md "
-                  onClick={() => removeTask()}
+                  onClick={() => removeTask(index)}
                 >
                   delete task
                 </button>

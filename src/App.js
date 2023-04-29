@@ -7,6 +7,7 @@ import {
   editTaskName,
   selectTasks,
 } from "./redux_/slices/tasks";
+import { Link } from "react-router-dom";
 
 function App() {
   const [formData, setFormData] = useState({});
@@ -64,10 +65,16 @@ function App() {
         <h1 className=" text-5xl text-slate-300 ">ReactJS Redux</h1>
       </header>
 
+      <div className=" text-left px-5 py-2  ">
+        <button className="bg-green-400 px-2 py-1 rounded-sm " >
+          <Link to={"/viewstoredata"}>View Redux Data In New Page</Link>
+        </button>
+      </div>
+
       <div className=" w-full flex flex-row justify-between px-5 py-5 ">
         <form
           onSubmit={(event) => handleSubmit(event)}
-          className=" bg-red-700 w-4/12 px-1 "
+          className=" w-4/12 px-1 "
         >
           <div className=" my-3 w-full ">
             <input
@@ -87,17 +94,17 @@ function App() {
         </form>
 
         {/*  */}
-        <div className=" bg-green-700 w-4/12 mx-3 ">
+        <div className=" w-4/12 mx-3 ">
           {selectTask &&
             selectTask.length > 0 &&
             selectTask.map((task, index) => (
               <div
-                className="flex justify-between px-2 py-2 text-center "
+                className=" my-2 bg-slate-300 flex justify-between px-2 py-2 text-center "
                 key={index}
               >
                 <div onClick={() => edit(task, index)}>{task?.name}</div>
                 <button
-                  className=" bg-red-800 px-2 py-1 rounded-md "
+                  className=" bg-red-800 text-white px-2 py-1 rounded-md "
                   onClick={() => removeTask(index)}
                 >
                   delete task
@@ -108,7 +115,7 @@ function App() {
         {/*  */}
 
         {/*  */}
-        <div className=" bg-blue-700 w-4/12 ">
+        <div className=" w-4/12 ">
           {toEdit && (
             <form
               onSubmit={(event) => handleEdit(event)}

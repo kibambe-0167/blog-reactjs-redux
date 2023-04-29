@@ -6,11 +6,29 @@ import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import store from "./redux_/store";
 
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import ErrorPage from "./errorPage";
+import ViewComponent from "./view";
+
+// basic router.
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/viewstoredata",
+    element: <ViewComponent />,
+    errorElement: <ErrorPage />,
+  },
+]);
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
     <React.StrictMode>
-      <App />
+      <RouterProvider router={router} />
     </React.StrictMode>
   </Provider>
 );

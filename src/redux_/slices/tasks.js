@@ -20,14 +20,14 @@ const taskSlice = createSlice({
     },
     editTaskName: (state, action) => {
       // find index in array where the provided index is the same.
-      let taskIndex = state.findInde(
-        (task) => task.id === action.payload.index
+      let task = state.tasks.filter(
+        (task, index) => index === action.payload.index
       );
 
       // if the index is not equal to -1, its found a task with right index.
       // change task name to the new name.
-      if (taskIndex !== -1) {
-        state.tasks[taskIndex].name = action.payload.newName;
+      if (task.length === 1) {
+        state.tasks[action.payload.index].name = action.payload.name;
       }
     },
   },

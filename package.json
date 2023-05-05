@@ -1,6 +1,7 @@
 {
   "name": "blog-reactjs-redux",
   "version": "0.1.0",
+  "homepage": "https://github.com/kibambe-0167/blog-reactjs-redux",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
@@ -19,7 +20,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [

@@ -62,7 +62,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1 className=" text-5xl text-slate-300 ">ReactJS Redux</h1>
+        <h1 className=" text-5xl text-slate-300 py-5 ">ReactJS Redux</h1>
       </header>
 
       <div className=" text-left px-5 py-2  ">
@@ -102,7 +102,7 @@ function App() {
                 className=" my-2 bg-slate-300 flex justify-between px-2 py-2 text-center "
                 key={index}
               >
-                <div onClick={() => edit(task, index)}>{task?.name}</div>
+                <div className=" underline cursor-pointer " onClick={() => edit(task, index)}>{task?.name}</div>
                 <button
                   className=" bg-red-800 text-white px-2 py-1 rounded-md "
                   onClick={() => removeTask(index)}

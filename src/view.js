@@ -8,7 +8,7 @@ export default function ViewComponent() {
 
   return (
     <div className="view">
-      <div className="text-left px-5 py-2 ">
+      <div className="text-left px-5 py-4 ">
         <button className="bg-green-400 px-2 py-1 rounded-sm ">
           <Link to={"/"}>Go Back</Link>
         </button>

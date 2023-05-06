@@ -44,6 +44,7 @@ function App() {
   function removeTask(index) {
     // pass task index to delete the task.
     dispatch(deleteTask(index));
+    // setToEdit(null);
   }
 
   function handleSubmit(event) {
@@ -80,7 +81,7 @@ function App() {
         </button>
       </div>
 
-      <div className=" w-full flex flex-row justify-between px-5 py-5 ">
+      <div className=" w-full flex xs:flex-col md:flex-row lg:flex-row xl:flex-row 2xl:flex-row sm:flex-col flex-row justify-between px-5 py-5 ">
         <form
           onSubmit={(event) => handleSubmit(event)}
           className=" w-4/12 px-1 "
@@ -109,11 +110,11 @@ function App() {
             selectTask.length > 0 &&
             selectTask.map((task, index) => (
               <div
-                className=" my-2 bg-slate-300 flex justify-between px-2 py-2 text-center "
+                className=" my-2 bg-slate-300 xs:flex-col justify-between px-2 py-2 text-center "
                 key={index}
               >
                 <div
-                  className=" underline cursor-pointer "
+                  className=" underline cursor-pointer xs:py-2 "
                   onClick={() => edit(task, index)}
                 >
                   {task?.name}

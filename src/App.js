@@ -81,10 +81,10 @@ function App() {
         </button>
       </div>
 
-      <div className=" w-full flex xs:flex-col md:flex-row lg:flex-row xl:flex-row 2xl:flex-row sm:flex-col flex-row justify-between px-5 py-5 ">
+      <div className=" div_ w-full flex xs:flex-col md:flex-row lg:flex-row xl:flex-row 2xl:flex-row sm:flex-col flex-row justify-between px-5 py-5 ">
         <form
           onSubmit={(event) => handleSubmit(event)}
-          className=" w-4/12 px-1 "
+          className=" w-4/12 px-1 xs:w-full "
         >
           <div className=" my-3 w-full ">
             <input
@@ -105,16 +105,16 @@ function App() {
         </form>
 
         {/*  */}
-        <div className=" w-4/12 mx-3 ">
+        <div className=" add_new w-4/12 mx-3 ">
           {selectTask &&
             selectTask.length > 0 &&
             selectTask.map((task, index) => (
               <div
-                className=" my-2 bg-slate-300 xs:flex-col justify-between px-2 py-2 text-center "
+                className=" my-2 bg-slate-300 xs:flex-col justify-between py-2 text-center "
                 key={index}
               >
                 <div
-                  className=" underline cursor-pointer xs:py-2 "
+                  className=" text underline cursor-pointer xs:py-2 "
                   onClick={() => edit(task, index)}
                 >
                   {task?.name}
@@ -131,7 +131,7 @@ function App() {
         {/*  */}
 
         {/*  */}
-        <div className=" w-4/12 ">
+        <div className=" edit w-4/12 ">
           {toEdit && (
             <form
               onSubmit={(event) => handleEdit(event)}

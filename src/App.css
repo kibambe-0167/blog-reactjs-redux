@@ -1,11 +1,43 @@
 .App {
   text-align: center;
   background-color: #282c34;
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 .view {
   text-align: center;
   background-color: #282c34;
-  height: 100vh;
+}
+
+.div_ .add_new .text {
+  margin-bottom: 1em;
+}
+
+@media screen and (max-width: 768px) {
+  .div_ {
+    flex-direction: column;
+  }
+
+  .div_ form {
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .div_ .add_new {
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .div_ .add_new .text {
+    margin-bottom: 1em;
+  }
+
+  .div_ .edit {
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 1em;
+  }
 }

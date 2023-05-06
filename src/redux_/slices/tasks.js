@@ -1,8 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-  tasks: [],
-};
+const initialState = { tasks: [] };
 
 const taskSlice = createSlice({
   name: "tasks",
@@ -23,7 +21,6 @@ const taskSlice = createSlice({
       let task = state.tasks.filter(
         (task, index) => index === action.payload.index
       );
-
       // if the index is not equal to -1, its found a task with right index.
       // change task name to the new name.
       if (task.length === 1) {
@@ -35,8 +32,6 @@ const taskSlice = createSlice({
 
 // export actions for each reducer function.
 export const { addTask, deleteTask, editTaskName } = taskSlice.actions;
-
 // provide way to access our task.
 export const selectTasks = (state) => state.tasks.tasks;
-
 export default taskSlice.reducer;

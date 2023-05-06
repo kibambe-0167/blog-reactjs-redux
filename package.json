@@ -1,7 +1,6 @@
 {
   "name": "blog-reactjs-redux",
   "version": "0.1.0",
-  "homepage": "http://kibambe-0167.github.io/blog-reactjs-redux",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",

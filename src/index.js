@@ -5,18 +5,13 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import store from "./redux_/store";
-
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./errorPage";
 import ViewComponent from "./view";
 
-// basic router.
+// basic router. v6
 const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    errorElement: <ErrorPage />,
-  },
+  { path: "/", element: <App />, errorElement: <ErrorPage /> },
   {
     path: "/viewstoredata",
     element: <ViewComponent />,
